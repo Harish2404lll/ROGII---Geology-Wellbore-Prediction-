@@ -81,5 +81,46 @@ Model performance is evaluated using Root Mean Squared Error (RMSE) across all p
 $$\text{RMSE} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} \left(\text{TVT}_{\text{actual}}^{(i)} - \text{TVT}_{\text{pred}}^{(i)}\right)^2}$$
 
   [cite: 2, 7]
+
+## 📊 Experimental Results & Model Performance
+
+The `FT-Transformer` architecture was evaluated using an 80/20 train/test split on the master aligned dataset across 49 epochs using the `RobustScaler` and `MSELoss` optimization setup[cite: 1]:
+
+| Metric | Target | Final Score |
+| :--- | :--- | :--- |
+| **Training RMSE Loss**[cite: 1] | Stratigraphic Thickness ($TVT$)[cite: 1, 7] | **81.9368 ft** |
+| **Final Test Target MAE**[cite: 1] | Stratigraphic Thickness ($TVT$)[cite: 1, 7] | **45.9464 ft** |
+| **Final Test Target RMSE**[cite: 1] | Stratigraphic Thickness ($TVT$)[cite: 1, 7] | **70.8039 ft** |
+
+### Convergence History (Final Epochs)
+
+
+<img width="1120" height="409" alt="image" src="https://github.com/user-attachments/assets/85e7edac-cf78-4faa-9935-c221c25f6d64" />
+
+
+## 📚 Related Work
+
+Subsurface interpretation and automated geosteering traditionally rely on deterministic algorithms or manual workflows across three main areas:
+
+* **Signal Matching & Dynamic Programming (DTW, Hale's Warping, HMMs):** Effective for 1D vertical alignments, but brittle under structural folding, faulting, and severe lateral stretch-squeeze. *Our approach* uses DTW strictly as a downstream feature extractor (`DTW_TVT`) rather than an unguided heuristic decoder.
+* **Machine Learning for Horizon Tracking (GBDTs, PINNs):** Standard tree models treat survey points independently, missing inter-feature dependencies. *Our approach* deploys **FT-Transformers** with self-attention to capture complex multi-scale tabular interactions.
+* **Spatial Interpolation (Kriging & Variography):** Fails in variable-dip basins with sparse offset control. *Our approach* conditions predictions on live MWD Gamma Ray and trajectory kinematics ($X, Y, Z, MD$) for dynamic responsiveness.
+
+---
+
+## 🔮 Future Work Roadmap
+
+* **[P1] Geological Loss Constraints:** Penalize physical dip violations and unrealistic $\frac{d\text{TVT}}{d\text{MD}}$ gradients.
+* **[P2] Offset-Well Graph Attention (GNN):** Enable dynamic spatial conditioning across multi-well pads.
+* **[P3] CNN–Transformer Hybrid:** Add multi-scale 1D temporal convolutions over local Gamma Ray windows.
+* **[P4] Uncertainty Quantification:** Implement Bayesian Monte Carlo Dropout and ensemble variance estimation.
+* **[P5] Real-Time Edge Deployment:** Export to ONNX Runtime/C++ for sub-second MWD streaming inference.
+## 🔬 Gaps Addressed by This Project
+1. Elimination of Manual Log Correlation Latency: Replaces subjective, human-in-the-loop curve matching with reproducible Dynamic Time Warping and Transformer-driven feature inference.
+
+2. Unified Continuous Space Tabular Embedding: Solves the tabular feature-interaction bottleneck in geosciences by applying self-attention across physical drilling coordinates and petrophysical logs simultaneously.
+
+3. Outlier-Resilient Stratigraphic Scaling: Demonstrates that pairing RobustScaler with continuous sequence transformers prevents extreme natural radioactivity spikes from destabilizing wellbore depth tracking.
+
 ## 🤝 Contributing & License
 Contributions are welcome. Please open an issue or submit a pull request for improvements in feature extraction, stratigraphic modeling, or model architectures.Distributed under the MIT License. See LICENSE for more information.
