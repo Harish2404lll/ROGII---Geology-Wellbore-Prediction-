@@ -74,6 +74,9 @@ Train the FT-Transformer on aligned tabular features:
 ```
 python src/train.py --data_path data/MASTER_training_data_v2.csv --epochs 50 --batch
 ```
+## 🏹 System Architecture: 
+
+<img width="1390" height="669" alt="image" src="https://github.com/user-attachments/assets/b57beadb-280c-4fa1-a5b3-536372706ea9" />
 
 ## 📈 Evaluation Metric
 Model performance is evaluated using Root Mean Squared Error (RMSE) across all prediction coordinates beyond the Prediction Start (PS) index[cite: 2, 7]:
