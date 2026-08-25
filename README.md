@@ -5,7 +5,6 @@ This repository is dedicated to organizing and maintaining my project work, code
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C.svg)](https://pytorch.org/)
 [![FastDTW](https://img.shields.io/badge/Signal-FastDTW-brightgreen.svg)](https://github.com/slaypni/fastdtw)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A hybrid deep-learning and signal-alignment pipeline engineered to predict **True Vertical Thickness (TVT)** across evaluation zones in horizontal well trajectories using Dynamic Time Warping (FastDTW) and Feature-Tokenizer Transformers (FT-Transformer).
 
