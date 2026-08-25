@@ -1,0 +1,16 @@
+# Deep Learning & GPU Acceleration (train_transformer.py, check_gpu.py)
+torch>=2.0.0
+
+# Dynamic Time Warping Signal Processing (build_dtw_master.py, dtw_test.py, Model set.ipynb)
+fastdtw>=0.3.4
+scipy>=1.10.0
+
+# Data Manipulation & Analysis (sample.py, train_transformer.py, build_dtw_master.py)
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Preprocessing & Evaluation Metrics (train_transformer.py)
+scikit-learn>=1.2.0
+
+# Interactive Notebook Environment (Model set.ipynb)
+ipykernel>=6.20.0
