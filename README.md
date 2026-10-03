@@ -1,5 +1,3 @@
-> **Evaluation correction:** The legacy `train_transformer.py` predicts `DTW_TVT`, includes actual `TVT` and training-only columns as inputs, drops missing `TVT_input` prediction-zone rows, and randomly splits rows. Its reported 70.8039 RMSE is not a valid estimate of unseen-well, post-PS TVT prediction. Use the corrected baseline in [UPGRADE.md](UPGRADE.md). No improved real-data score has been established yet.
-
 # ROGII - Geology Wellbore Prediction-
 This repository is dedicated to organizing and maintaining my project work, code, datasets, and documentation.
 # GeoSteer-AI: Subsurface Geological Trajectory & TVT Prediction
@@ -129,4 +127,3 @@ Subsurface interpretation and automated geosteering traditionally rely on determ
 
 ## 🤝 Contributing & License
 Contributions are welcome. Please open an issue or submit a pull request for improvements in feature extraction, stratigraphic modeling, or model architectures.Distributed under the MIT License. See LICENSE for more information.
-
